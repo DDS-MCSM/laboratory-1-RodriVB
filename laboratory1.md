@@ -3,40 +3,25 @@ title: "Laboratory 1 - Data Driven Security"
 author: "Rodrigo Alan Vera Bautista"
 date: "2018-2019"
 output:
+  html_document:
+    keep_md: yes
+    number_sections: yes
+    toc: yes
   html_notebook:
     number_sections: yes
     theme: spacelab
     toc: yes
     toc_float: no
-  html_document:
-    keep_md: yes
-    number_sections: yes
-    toc: yes
 editor_options: 
   chunk_output_type: console
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-knitr::opts_chunk$set(fig.align = 'center')
-```
 
 
-```{r bootstrap, message=FALSE, warning=FALSE, include=FALSE}
-if (!suppressMessages(suppressWarnings(require("plyr", quietly = T)))) {
-  suppressMessages(suppressWarnings(install.packages("plyr", repos = "http://cran.rstudio.com/", quiet = T, dependencies = T)))
-}
-if (!suppressMessages(suppressWarnings(require("dplyr", quietly = T)))) {  
-  suppressMessages(suppressWarnings(install.packages("dplyr", repos = "http://cran.rstudio.com/", quiet = T, dependencies = T)))
-}
-if (!suppressMessages(suppressWarnings(require("ggplot2", quietly = T)))) {
-suppressMessages(suppressWarnings(install.packages("ggplot2", repos = "http://cran.rstudio.com/", quiet = T, dependencies = T)))
-}
-```
 
-``` {r themes, echo=FALSE, eval=FALSE}
-themes <- "default", "cerulean", "journal", "flatly", "readable", "spacelab", "united", "cosmo", "lumen", "paper", "sandstone", "simplex", "yeti"
-```
+
+
+
 
 ## About the laboratory...
 
@@ -52,9 +37,7 @@ Throughout the laboratories, the theory seen at class will be put in practice in
 
 # R Language
 
-```{r r_logo, out.width = "150px"}
-knitr::include_graphics("figures/Rlogo.png")
-```
+<img src="figures/Rlogo.png" width="150px" style="display: block; margin: auto;" />
 
 The language used in this subject is ...*R*. As seen in theory, there are plenty of reasons to use this programming language for the tasks where are about to do.
 
@@ -71,8 +54,13 @@ Following the tradition, the very first program to code with a new language is t
 
 In R, it would look like this:
 
-```{r hello_world, echo=TRUE}
+
+```r
 print("Hello World!")
+```
+
+```
+## [1] "Hello World!"
 ```
 
 which unsurprisingly, prints the famous welcoming phrase.
@@ -86,7 +74,8 @@ Fortunately, the comunity of R developers usually provides a great documentation
 
 To display the help for a given function, just type a question mark before the name of the function in the Console:
 
-```{r look_for_help, echo=TRUE, eval=FALSE}
+
+```r
 ?help
 # show help for 'help' function
 ```
@@ -99,9 +88,7 @@ Moreover, documentation usually includes examples with the most common uses.
 
 # R Studio
 
-```{r rstudio_logo, out.width = "200px"}
-knitr::include_graphics("figures/RStudio-Logo-Blue-Gradient.png")
-```
+<img src="figures/RStudio-Logo-Blue-Gradient.png" width="200px" style="display: block; margin: auto;" />
 
 Before actually getting our hands dirty writing our R programs to analyse data, it is a good step to familiarize with the environment we will be using.
 
@@ -117,9 +104,7 @@ Firstly, as a way to know your new IDE, it is very recommendable for you to insp
 
 As a good practice and in order to prevent future errors everyone should agree on a minimal configuration:
 
-```{r rstudio_settings, out.width = "500px"}
-knitr::include_graphics("figures/rstudio_settings.png")
-```
+<img src="figures/rstudio_settings.png" width="500px" style="display: block; margin: auto;" />
 
 - _Open preferences: (Linux/Windows: Edit -> Preferences, OSX: RStudio -> Preferences)_
 
@@ -146,9 +131,7 @@ Note that it is possible to customize the layout of the window so that different
 
 On the other hand, the console section provides us with an R interpreter so that we can test our code as much as needed until it works.
 
-```{r rstudio_layout, out.width = "600px"}
-knitr::include_graphics("figures/rstudio_layout.png")
-```
+<img src="figures/rstudio_layout.png" width="600px" style="display: block; margin: auto;" />
 
 It is not necessary to copy and paste our program's lines from Source to Console in order to execute. By using _Ctrl + Enter / Cmd + Enter (macOSX)_ we can evaluate the selected line from source and we will either immediately see the output within the Console or the result of the execution in the Environment section.
 
@@ -170,9 +153,7 @@ Moreover, you can also navigate through the stack of environments if any.
 
 # Git Basics
 
-```{r git_logo, out.width = "200px"}
-knitr::include_graphics("figures/git.png")
-```
+<img src="figures/git.png" width="200px" style="display: block; margin: auto;" />
 
 ## Create a _hands on_ project with R Studio
 
@@ -182,9 +163,7 @@ Since we know a little about [Git](https://git-scm.com/), the VCS, we will be us
 
 To do so, just go to File -> New Project, and select the option "New Directory" and "Empty Project". Make sure to checkout the "create a git repository" checkbox.
 
-```{r new_project, out.width = "500px"}
-knitr::include_graphics("figures/new_project.png")
-```
+<img src="figures/new_project.png" width="500px" style="display: block; margin: auto;" />
 
 That's it. We now have our first R project, the collection of files that are related to our program.
 
@@ -194,7 +173,8 @@ Since we have selected the checkbox to create a _git_ repository, RStudio has al
 
 - _Create a new R file (a normal file with .R extension). Write some R code. If you don't have any idea, you can always copy the following R program:_
 
-```{r r_sample, echo=TRUE, eval=FALSE}
+
+```r
 # This is my first R program
 print("Hello World!")
 
@@ -212,9 +192,7 @@ print(paste("This is a hands on project written in",
 
 Once you have added some R code, you can start by adding all the changes made to files to the staging area, where it will remain until it is finally commited.
 
-```{r staging_area, out.width = "500px"}
-knitr::include_graphics("figures/git_staging.png")
-```
+<img src="figures/git_staging.png" width="500px" style="display: block; margin: auto;" />
 
 Remember that RStudio provides an easy way to stage the files within the Git tab, where by default it shows all the files for your project, allowing you to stage and unstage.
 
@@ -228,17 +206,13 @@ To create a remote repository we will be using _[GitHub](https://github.com/)_, 
 
 - _Sign up to Github_
 
-```{r sign_in_github, out.width = "600px"}
-knitr::include_graphics("figures/sign_up_github.png")
-```
+<img src="figures/sign_up_github.png" width="600px" style="display: block; margin: auto;" />
 
 - _Create your first repository. To make things easy, name it equally to the R project we have just created._
 
 
 
-```{r new_github_rep, out.width = "600px"}
-knitr::include_graphics("figures/new_github_repo.png")
-```
+<img src="figures/new_github_repo.png" width="600px" style="display: block; margin: auto;" />
 
 Once you have crated the repository, we must somehow establish the relation between our R project (which is also the local git repository) and the remote repository before we can actually send our commits to the Github repository.
 
@@ -252,13 +226,12 @@ In this particular case, it will be necessary to manually run the git commands o
 
 _First of all we must obtain the remote address:_
 
-```{r get_remote_rep, out.width = "400px"}
-knitr::include_graphics("figures/remote_address.png")
-```
+<img src="figures/remote_address.png" width="400px" style="display: block; margin: auto;" />
 
 _Then, open a terminal within the project folder and run the git command to set the direction of the locale_
 
-```{sh add_origin, echo=TRUE, eval=FALSE}
+
+```sh
 # substitute '<remote repository address>' with the address copied from GitHub.
 git remote add origin <remote repository address>
 ```
@@ -271,15 +244,14 @@ Despite the fact of adding the address of the remote, it is still impossible to 
 
 Before pushing local commits we must first specify to which branch we want to send our changes, i.e. it is still necessary to link the _local master branch_ with the _remote master branch_.
 
-```{sh push_to_remote, echo=TRUE, eval=FALSE}
+
+```sh
 git push --set-upstream-to=origin/master
 ```
 
 After issuing the previous command, not only we will have established the relation between the master branches (local and remote) but also have send the latest changes made in our local repo to the remote.
 
-```{r push_button, out.width = "500px"}
-knitr::include_graphics("figures/push_btn.png")
-```
+<img src="figures/push_btn.png" width="500px" style="display: block; margin: auto;" />
 
 From now onwards, the next time we will want to publish the commits made from the local repository to the remote, a simple push will be enough. Since this is a very common action, the green upwards arrow from the git pane send the new commits to the remote so that other developers can fetch it.
 
@@ -289,9 +261,7 @@ Lastly, in case we are interested to retrieve the lastest commits pushed to the 
 
 Similarly to the push action, in RStudio, the blue down arrow from the git pane triggers the pull from the remote.
 
-```{r pull_button, out.width = "500px"}
-knitr::include_graphics("figures/pull_btn.png")
-```
+<img src="figures/pull_btn.png" width="500px" style="display: block; margin: auto;" />
 
 --------
 
@@ -307,9 +277,7 @@ There we can find not only the those packages that do not satisfy the CRAN requi
 
 To manage installed packages, once again, RStudio provide an easy GUI interface that facilitates the administration of the packages. Though it, it is possible to view all already installed packages, install new ones (from CRAN or local folder), update and uninstall.
 
-```{r, out.width = "500px"}
-knitr::include_graphics("figures/manage_packages.png")
-```
+<img src="figures/manage_packages.png" width="500px" style="display: block; margin: auto;" />
 
 
 - _Try installing some of the very useful packages, that are not part of the R core:_
@@ -324,12 +292,14 @@ Once a package has been installed, in order to use the functions that export, i.
 
 To do so, it is as simple as including the installed package within our program.
 
-```{r load_package, echo=TRUE, warning=FALSE}
+
+```r
 library("ggplot2")
 # now we can use functions exported by this package
 ```
 
-```{r, echo=T, cache=TRUE}
+
+```r
 if (!file.exists("db")) {
   exploitdb_url <- "https://github.com/offensive-security/exploit-database/raw/master/files_exploits.csv"
   #exploitdb_url <- "https://raw.githubusercontent.com/offensive-security/exploit-database/master/files.csv"
@@ -340,14 +310,19 @@ db_aggr <- dplyr::count(db, platform, sort = T)
 ggplot(db_aggr, aes(x = "", y = n, fill = platform)) + geom_bar(width = 1, stat = "identity")
 ```
 
+<img src="laboratory1_files/figure-html/unnamed-chunk-2-1.png" style="display: block; margin: auto;" />
+
 This way, we will be able to call the different functions in our code.
 
 For example, using dply and ggplot, we can easily see the top platforms with more vulnerabilities
 
-```{r, echo=T, cache=TRUE}
+
+```r
 db_aggr <- dplyr::count(db, platform, sort = T)
 ggplot(head(db_aggr), aes(x=platform, y=n, fill=platform)) + geom_bar(stat = "identity")
 ```
+
+<img src="laboratory1_files/figure-html/unnamed-chunk-3-1.png" style="display: block; margin: auto;" />
 
 ---------
 
@@ -359,7 +334,8 @@ Since following labs will presuppose certain knowledge of R, you should complete
 
 1. _Install Swirl package (either use the packages pane or following R instruction on the console):_
 
-```{r install_swirl, echo=TRUE, eval=FALSE}
+
+```r
 if (!require("swirl")) {
   install.packages("swirl", repos="http://cran.rstudio.com/", quiet = T)
 }
@@ -367,13 +343,15 @@ if (!require("swirl")) {
 
 2. _Load the just installed package:_
 
-```{r load_swirl, echo=T, eval=FALSE}
+
+```r
 library("swirl")
 ```
 
 3. _Launch swirl and complete the tutorial:_
 
-```{r launch_swirl, echo=TRUE,eval=FALSE}
+
+```r
 swirl()
 ```
 
