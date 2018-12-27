@@ -1,15 +1,15 @@
 ---
 title: "Laboratory 1 - Data Driven Security"
-author: "Arnau Sangrà Rocamora"
-date: "Fall 2018"
+author: "Rodrigo Alan Vera Bautista"
+date: "2018-2019"
 output:
-  html_document:
-    toc: yes
   html_notebook:
     number_sections: yes
     theme: spacelab
     toc: yes
     toc_float: no
+  html_document:
+    toc: yes
 ---
 
 ```{r setup, include=FALSE}
